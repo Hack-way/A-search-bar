@@ -1,0 +1,158 @@
+# Animated Search box with @Hackway
+
+This code creates a search form with a search input field and a submit button. When the user submits the form, the code hides the search image and displays the search results for the query entered in the search input field.
+
+## Here is a more detailed explanation of the code:
+
+1) The searchForm variable is used to reference the search form element.
+2) The searchInput variable is used to reference the search input field element.
+3) The searchImage variable is used to reference the search image element.
+4) The searchResults variable is used to reference the search results element.
+5) The searchForm event listener is used to handle the submit event of the search form.
+6) The preventDefault() method is used to prevent the default action of the submit event, which is to submit the form.
+7) The searchImage.style.display = "none" statement is used to hide the search image.
+8) The searchResults.innerHTML =Showing results for: ${searchInput.value}; statement is used to display the search results for the query entered in the search input field.
+
+### The final HTML file structure should look like this: The code
+
+CSS code:
+  <style>
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+#search-image {
+  margin-bottom: 10px;
+  max-width: 100%;
+}
+
+form {
+  display: flex;
+  margin-bottom: 10px;
+  color: #555;
+  display: flex;
+  padding: 2px;
+  font-size: 20px;
+  border: 1px solid currentColor;
+  border-radius: 5px;
+  margin: 0 0 30px;
+  width:70%;
+}
+
+input[type="search"] {
+  background: transparent;
+  margin: 0;
+  padding: 7px 8px;
+  font-size: 20px;
+  color: inherit;
+  border: 1px solid transparent;
+  border-radius: inherit;
+  width: 100%;
+}
+input[type="text"] {
+  width: 100%;
+}
+
+input[type="search"]::placeholder {
+  color: #bbb;
+}
+button[type="submit"] {
+  text-indent: -999px;
+  overflow: hidden;
+  width: 55px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: inherit;
+  background: transparent
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
+    no-repeat center;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+button[type="submit"]:hover {
+  opacity: 1;
+}
+
+button[type="submit"]:focus,
+input[type="search"]:focus {
+  box-shadow: 0 0 3px 0 #1183d6;
+  border-color: #1183d6;
+  outline: none;
+}
+
+form.nosubmit {
+  border: none;
+  padding: 0;
+}
+
+input.nosubmit {
+  border: 2px solid #555;
+  width: 100%;
+  padding: 9px 4px 9px 40px;
+  background: transparent
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E")
+    no-repeat 13px center;
+}
+
+#allsr {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+.allsr {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+#img {
+  border-radius: 50%;
+}
+  </style>
+
+HTML code:
+<body>
+<a href="https://www.youtube.com/channel/UCpOAe47k4uLjemSBTiAEk2g?sub_confirmation=1" target="_blank"><img id='img' align="right" src="https://yt3.googleusercontent.com/EJfnBM8DfmXQxTHpWNJeE8GHhRxFDmNLZ_b6iXZq6zpfy95h_FM2vTu8iK8uHTLBhdY9rF1jSg=s88-c-k-c0x00ffffff-no-rj" alt="Hackway"></a>
+
+<div class="container">
+  <img id="search-image" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgmmHd2MewCfa-fOSe4ooZLScrr0BdlAt2Nqw19Tnt8qf-A7N0R5XdUEM_CkAIyqPVrvcAhvb71wIGWdUQf_w83WsnsyQpD_Bl09vGhM6OCJTRB3iCa-RH-0hIA8hoGP6AB2YBLqazMKEIGS7v9Nd61HQA4p2xqSOxUEiTr_ujTTOPDHG0kUWdIkDw/s320/Donate%20Us.png" alt="Hackway" />
+<form id="search-form">     
+            <input type="search" id="search-input" placeholder="Search with Linklinkgo...." />
+            <button type="submit" id="search-button">Search</button>
+        </form>
+<div id="search-results">
+        <div class="allsr">
+            <a id="search-result1" target="_blank"></a>
+            <a id="search-result2" target="_blank"></a>
+            <a id="search-result3" target="_blank"></a>
+            <a id="search-result4" target="_blank"></a>
+            <a id="search-result5" target="_blank"></a>
+            <a id="search-result6" target="_blank"></a>
+            <a id="search-result7" target="_blank"></a>
+            <a id="search-result8" target="_blank"></a>
+            <a id="search-result9" target="_blank"></a>
+            <a id="search-result10" target="_blank"></a>
+        </div></div>
+    </div>
+</body>
+
+Javascript code:
+<script>
+const searchForm = document.getElementById("search-form");
+const searchInput = document.getElementById("search-input");
+const searchImage = document.getElementById("search-image");
+const searchResults = document.getElementById("search-results");
+
+searchForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  searchImage.style.display = "none";
+  searchResults.innerHTML = `Showing results for: ${searchInput.value}`;
+});
+</script>
+
+I hope this summary is helpful. Let me know if you have any other questions.
